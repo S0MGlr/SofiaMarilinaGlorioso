@@ -15,18 +15,41 @@
 
     <title>Sofia Marilina Glorioso</title>
 
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    >
+
     <style>
       :root {
         --primary: #c6dae7;
-        --primary-light: #eef6fa;
+        --primary-soft: #eaf3f8;
+        --primary-light: #f4f9fc;
         --primary-dark: #24445c;
+
         --accent: #527d99;
-        --background: #f7fafc;
+        --accent-soft: #789bb1;
+
+        --background: #f8fafc;
         --surface: #ffffff;
+
         --text: #25343f;
-        --muted: #5d6c77;
+        --muted: #65747e;
+
         --border: #dce8ef;
-        --shadow: 0 12px 30px rgba(36, 68, 92, 0.1);
+        --border-light: #edf3f6;
+
+        --shadow:
+          0 14px 35px rgba(36, 68, 92, 0.08);
+
+        --shadow-hover:
+          0 20px 45px rgba(36, 68, 92, 0.12);
+
+        --radius: 16px;
       }
 
       * {
@@ -41,113 +64,235 @@
         margin: 0;
         color: var(--text);
         background-color: var(--background);
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.7;
+        font-family: "DM Sans", Arial, sans-serif;
+        line-height: 1.75;
+      }
+
+      ::selection {
+        color: var(--primary-dark);
+        background: var(--primary);
       }
 
       a {
         color: var(--primary-dark);
       }
 
+      /* ----------------------------- */
+      /* NAVBAR                        */
+      /* ----------------------------- */
+
       nav {
         position: sticky;
         top: 0;
         z-index: 100;
-        background-color: rgba(255, 255, 255, 0.96);
-        border-bottom: 1px solid var(--border);
-        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid rgba(220, 232, 239, 0.8);
+        backdrop-filter: blur(14px);
       }
 
       .nav-container {
         width: min(1150px, calc(100% - 40px));
-        min-height: 70px;
+        min-height: 72px;
         margin: 0 auto;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
 
       .logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
         color: var(--primary-dark);
-        font-size: 1.1rem;
-        font-weight: bold;
+
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: 1.35rem;
+        letter-spacing: -0.02em;
+
         text-decoration: none;
+      }
+
+      .logo span {
+        color: var(--accent);
       }
 
       .nav-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 24px;
       }
 
       .nav-links a {
+        position: relative;
+
         color: var(--text);
-        font-size: 0.9rem;
-        font-weight: bold;
+        font-size: 0.86rem;
+        font-weight: 600;
+
         text-decoration: none;
+
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a::after {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+
+        width: 0;
+        height: 2px;
+
+        background: var(--accent);
+
+        transition: width 0.2s ease;
       }
 
       .nav-links a:hover {
         color: var(--accent);
       }
 
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* ----------------------------- */
+      /* HERO                          */
+      /* ----------------------------- */
+
       header {
-        padding: 90px 20px;
+        position: relative;
+        overflow: hidden;
+
+        padding: 100px 20px;
+
         background:
+          radial-gradient(
+            circle at 85% 20%,
+            rgba(255, 255, 255, 0.7),
+            transparent 32%
+          ),
           linear-gradient(
             135deg,
-            rgba(198, 218, 231, 1),
-            rgba(238, 246, 250, 1)
+            #c6dae7 0%,
+            #e8f2f7 55%,
+            #f5fafc 100%
           );
       }
 
+      header::after {
+        content: "";
+
+        position: absolute;
+        width: 330px;
+        height: 330px;
+
+        right: -120px;
+        bottom: -160px;
+
+        border-radius: 50%;
+        border: 1px solid rgba(36, 68, 92, 0.08);
+      }
+
       .hero {
+        position: relative;
+        z-index: 1;
+
         width: min(1080px, 100%);
         margin: 0 auto;
+
         display: grid;
         grid-template-columns: 240px 1fr;
-        gap: 55px;
+        gap: 60px;
         align-items: center;
       }
 
       .foto-profilo {
         width: 230px;
         height: 230px;
+
         object-fit: cover;
-        border: 7px solid white;
+
+        border: 7px solid rgba(255, 255, 255, 0.9);
         border-radius: 50%;
-        box-shadow: var(--shadow);
+
+        box-shadow:
+          0 22px 50px rgba(36, 68, 92, 0.15);
       }
 
       .etichetta {
-        margin: 0 0 10px;
-        color: var(--primary-dark);
-        font-size: 0.82rem;
-        font-weight: bold;
-        letter-spacing: 0.12em;
+        margin: 0 0 12px;
+
+        color: var(--accent);
+
+        font-size: 0.77rem;
+        font-weight: 700;
+
+        letter-spacing: 0.16em;
         text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        text-wrap: balance;
       }
 
       h1 {
         margin: 0;
+
         color: var(--primary-dark);
-        font-size: clamp(2.4rem, 6vw, 4rem);
-        line-height: 1.1;
+
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: clamp(2.8rem, 6vw, 4.6rem);
+        font-weight: 400;
+
+        line-height: 1.04;
+        letter-spacing: -0.025em;
       }
 
       .titolo-professionale {
-        margin: 18px 0;
+        margin: 18px 0 8px;
+
         color: var(--text);
-        font-size: 1.2rem;
-        font-weight: bold;
+
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+
+      .research-signature {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+
+        margin: 10px 0 22px;
+
+        color: var(--accent);
+
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .research-signature .dot {
+        opacity: 0.55;
       }
 
       .introduzione {
         max-width: 760px;
-        margin-bottom: 28px;
+
+        margin-bottom: 30px;
+
         color: var(--muted);
-        font-size: 1.05rem;
+        font-size: 1.03rem;
       }
+
+      /* ----------------------------- */
+      /* BUTTONS                       */
+      /* ----------------------------- */
 
       .pulsanti {
         display: flex;
@@ -156,26 +301,39 @@
       }
 
       .pulsante {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
         padding: 11px 20px;
+
         color: white;
         background-color: var(--primary-dark);
+
         border: 2px solid var(--primary-dark);
-        border-radius: 8px;
-        font-weight: bold;
+        border-radius: 10px;
+
+        font-size: 0.92rem;
+        font-weight: 600;
+
         text-decoration: none;
-        transition: 0.2s ease;
+
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
       }
 
       .pulsante:hover {
-        color: var(--primary-dark);
-        background-color: transparent;
         transform: translateY(-2px);
+
+        box-shadow:
+          0 10px 24px rgba(36, 68, 92, 0.14);
       }
 
       .pulsante-secondario {
         color: var(--primary-dark);
-        background-color: transparent;
+        background-color: rgba(255, 255, 255, 0.35);
       }
 
       .pulsante-secondario:hover {
@@ -183,13 +341,18 @@
         background-color: var(--primary-dark);
       }
 
+      /* ----------------------------- */
+      /* SECTIONS                      */
+      /* ----------------------------- */
+
       main {
         width: min(1050px, calc(100% - 40px));
         margin: 0 auto;
       }
 
       section {
-        padding: 75px 0;
+        padding: 82px 0;
+
         scroll-margin-top: 70px;
       }
 
@@ -198,20 +361,34 @@
       }
 
       .titolo-sezione {
-        max-width: 760px;
-        margin-bottom: 35px;
+        max-width: 770px;
+
+        margin-bottom: 38px;
       }
 
       h2 {
         margin: 0 0 12px;
+
         color: var(--primary-dark);
-        font-size: 2rem;
+
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: clamp(2rem, 4vw, 2.65rem);
+        font-weight: 400;
+
+        line-height: 1.15;
       }
 
       .sottotitolo {
         margin: 0;
+
         color: var(--muted);
+
+        font-size: 1rem;
       }
+
+      /* ----------------------------- */
+      /* CARDS                         */
+      /* ----------------------------- */
 
       .griglia {
         display: grid;
@@ -220,132 +397,400 @@
       }
 
       .scheda {
-        padding: 27px;
+        padding: 28px;
+
         background-color: var(--surface);
+
         border: 1px solid var(--border);
-        border-top: 5px solid var(--primary);
-        border-radius: 12px;
+        border-radius: var(--radius);
+
         box-shadow: var(--shadow);
+
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .scheda:hover {
+        transform: translateY(-3px);
+
+        border-color: var(--primary);
+
+        box-shadow: var(--shadow-hover);
       }
 
       .scheda h3 {
         margin: 0 0 12px;
+
         color: var(--primary-dark);
+
+        font-size: 1.08rem;
       }
 
       .scheda p {
         margin: 0;
+
         color: var(--muted);
       }
 
+      /* Research cards */
+
+      #ricerca .scheda {
+        position: relative;
+
+        padding-top: 32px;
+
+        border-top: 4px solid var(--primary);
+      }
+
+      /* ----------------------------- */
+      /* PHD PROJECT                   */
+      /* ----------------------------- */
+
       .progetto {
-        margin-top: 30px;
-        padding: 30px;
-        background-color: var(--primary-light);
-        border-left: 6px solid var(--accent);
-        border-radius: 10px;
+        margin-top: 32px;
+        padding: 32px;
+
+        background:
+          linear-gradient(
+            135deg,
+            var(--primary-light),
+            #ffffff
+          );
+
+        border: 1px solid var(--border);
+        border-left: 5px solid var(--accent);
+        border-radius: var(--radius);
       }
 
       .progetto h3 {
         margin-top: 0;
+
         color: var(--primary-dark);
+
+        font-size: 1.25rem;
       }
 
       .progetto p:last-child {
         margin-bottom: 0;
       }
 
+      /* ----------------------------- */
+      /* TIMELINE                      */
+      /* ----------------------------- */
+
       .timeline {
+        position: relative;
+
         display: grid;
-        gap: 20px;
+        gap: 18px;
       }
 
       .esperienza {
-        padding: 26px 30px;
+        position: relative;
+
+        padding: 27px 30px;
+
         background-color: var(--surface);
+
         border: 1px solid var(--border);
-        border-left: 6px solid var(--primary);
-        border-radius: 10px;
+        border-left: 5px solid var(--primary);
+
+        border-radius: 12px;
+
+        transition:
+          transform 0.2s ease,
+          border-left-color 0.2s ease;
+      }
+
+      .esperienza:hover {
+        transform: translateX(4px);
+
+        border-left-color: var(--accent);
       }
 
       .esperienza h3 {
         margin: 0 0 5px;
+
         color: var(--primary-dark);
       }
 
       .organizzazione {
         margin: 0 0 12px;
+
         color: var(--accent);
-        font-weight: bold;
+
+        font-size: 0.94rem;
+        font-weight: 600;
       }
 
       .esperienza p:last-child {
         margin-bottom: 0;
       }
 
+      /* ----------------------------- */
+      /* TAGS                          */
+      /* ----------------------------- */
+
       .tag-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 25px;
+        gap: 9px;
+
+        margin-top: 28px;
       }
 
       .tag {
-        padding: 7px 13px;
+        padding: 6px 13px;
+
         color: var(--primary-dark);
-        background-color: var(--primary);
+        background-color: rgba(255, 255, 255, 0.75);
+
+        border: 1px solid var(--primary);
         border-radius: 30px;
-        font-size: 0.9rem;
-        font-weight: bold;
+
+        font-size: 0.82rem;
+        font-weight: 500;
+
+        transition:
+          background-color 0.2s ease,
+          transform 0.2s ease;
       }
 
+      .tag:hover {
+        background-color: var(--primary-soft);
+
+        transform: translateY(-1px);
+      }
+
+      /* ----------------------------- */
+      /* CONFERENCES                   */
+      /* ----------------------------- */
+
+      .conference-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+
+      .conference-card {
+        position: relative;
+
+        padding: 28px;
+
+        overflow: hidden;
+
+        background:
+          linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fbfdfe 100%
+          );
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+
+        box-shadow: var(--shadow);
+
+        transition:
+          transform 0.22s ease,
+          box-shadow 0.22s ease;
+      }
+
+      .conference-card:hover {
+        transform: translateY(-4px);
+
+        box-shadow: var(--shadow-hover);
+      }
+
+      .conference-card::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 4px;
+
+        background:
+          linear-gradient(
+            90deg,
+            var(--primary),
+            var(--accent-soft)
+          );
+      }
+
+      .conference-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+
+        margin-bottom: 14px;
+      }
+
+      .conference-card h3 {
+        margin: 0;
+
+        color: var(--primary-dark);
+
+        font-size: 1.15rem;
+      }
+
+      .conference-year {
+        flex-shrink: 0;
+
+        padding: 4px 10px;
+
+        color: var(--accent);
+        background: var(--primary-light);
+
+        border: 1px solid var(--border);
+        border-radius: 999px;
+
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .conference-location {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+
+        margin: 0 0 14px;
+
+        color: var(--accent);
+
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .conference-description {
+        color: var(--muted);
+      }
+
+      .conference-description p {
+        margin: 0 0 12px;
+      }
+
+      .conference-description p:last-child {
+        margin-bottom: 0;
+      }
+
+      .conference-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+
+        margin-top: 18px;
+      }
+
+      .conference-links a {
+        color: var(--primary-dark);
+
+        font-size: 0.85rem;
+        font-weight: 600;
+
+        text-decoration: none;
+
+        border-bottom: 1px solid var(--primary);
+      }
+
+      .conference-links a:hover {
+        color: var(--accent);
+      }
+
+      /* ----------------------------- */
+      /* CONTACTS                      */
+      /* ----------------------------- */
+
       .contatti {
-        padding: 45px;
-        background-color: var(--primary);
-        border-radius: 16px;
+        padding: 46px;
+
+        background:
+          linear-gradient(
+            135deg,
+            var(--primary),
+            #dceaf2
+          );
+
+        border: 1px solid rgba(82, 125, 153, 0.12);
+        border-radius: 20px;
       }
 
       .elenco-contatti {
         display: grid;
         gap: 12px;
-        margin: 25px 0;
+
+        margin: 25px 0 0;
       }
 
       .elenco-contatti p {
         margin: 0;
+
         overflow-wrap: anywhere;
       }
 
+      .elenco-contatti a {
+        font-weight: 500;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      /* ----------------------------- */
+      /* FOOTER                        */
+      /* ----------------------------- */
+
       footer {
         margin-top: 70px;
-        padding: 30px 20px;
+        padding: 34px 20px;
+
         color: var(--muted);
+
+        font-size: 0.85rem;
         text-align: center;
+
         background-color: var(--surface);
+
         border-top: 1px solid var(--border);
       }
+
+      footer strong {
+        color: var(--primary-dark);
+        font-weight: 600;
+      }
+
+      /* ----------------------------- */
+      /* RESPONSIVE                    */
+      /* ----------------------------- */
 
       @media (max-width: 850px) {
         .nav-container {
           padding: 14px 0;
+
           flex-direction: column;
           gap: 10px;
         }
 
         .nav-links {
           justify-content: center;
-          gap: 12px;
+          gap: 13px;
         }
 
         .hero {
           grid-template-columns: 1fr;
-          gap: 30px;
+
+          gap: 32px;
+
           text-align: center;
         }
 
         .foto-profilo {
-          width: 190px;
-          height: 190px;
+          width: 195px;
+          height: 195px;
+
           margin: 0 auto;
         }
 
@@ -354,22 +799,24 @@
           margin-left: auto;
         }
 
-        .pulsanti {
+        .pulsanti,
+        .research-signature {
           justify-content: center;
         }
 
-        .griglia {
+        .griglia,
+        .conference-grid {
           grid-template-columns: 1fr;
         }
       }
 
       @media (max-width: 550px) {
         header {
-          padding: 55px 20px;
+          padding: 65px 20px;
         }
 
         section {
-          padding: 55px 0;
+          padding: 60px 0;
         }
 
         .logo {
@@ -377,25 +824,39 @@
         }
 
         .nav-links {
-          font-size: 0.85rem;
+          gap: 9px 13px;
+
+          font-size: 0.82rem;
         }
 
         .contatti {
-          padding: 28px 22px;
+          padding: 30px 23px;
         }
 
         .pulsante {
           width: 100%;
+
           text-align: center;
+        }
+
+        .conference-top {
+          flex-direction: column;
+          gap: 8px;
         }
       }
     </style>
   </head>
 
   <body>
+
+    <!-- NAVBAR -->
+
     <nav>
       <div class="nav-container">
-        <a class="logo" href="#home">SMG</a>
+
+        <a class="logo" href="#home">
+          SMG<span>.</span>
+        </a>
 
         <div class="nav-links">
           <a href="#chi-sono">Chi sono</a>
@@ -406,11 +867,17 @@
           <a href="#profili">Profili</a>
           <a href="#contatti">Contatti</a>
         </div>
+
       </div>
     </nav>
 
+
+    <!-- HERO -->
+
     <header id="home">
+
       <div class="hero">
+
         <img
           src="foto-profilo.jpg"
           alt="Foto di Sofia Marilina Glorioso"
@@ -418,8 +885,9 @@
         >
 
         <div>
+
           <p class="etichetta">
-            Artificial Intelligence · HCI · Edge AI
+            Artificial Intelligence · Human-Computer Interaction
           </p>
 
           <h1>Sofia Marilina Glorioso</h1>
@@ -428,6 +896,14 @@
             PhD Candidate in Artificial Intelligence and
             Human-Computer Interaction
           </p>
+
+          <div class="research-signature">
+            <span>Human</span>
+            <span class="dot">·</span>
+            <span>AI</span>
+            <span class="dot">·</span>
+            <span>Devices</span>
+          </div>
 
           <p class="introduzione">
             Dottoranda presso l'Università degli Studi di Enna “Kore”.
@@ -439,7 +915,11 @@
           </p>
 
           <div class="pulsanti">
-            <a class="pulsante" href="#ricerca">
+
+            <a
+              class="pulsante"
+              href="#ricerca"
+            >
               Scopri la mia ricerca
             </a>
 
@@ -450,13 +930,22 @@
             >
               Visualizza il CV
             </a>
+
           </div>
+
         </div>
+
       </div>
+
     </header>
 
+
     <main>
+
+      <!-- CHI SONO -->
+
       <section id="chi-sono">
+
         <div class="titolo-sezione">
           <p class="etichetta">Profilo</p>
           <h2>Chi sono</h2>
@@ -493,24 +982,40 @@
           limitate e su interfacce multimodali capaci di adattarsi
           all'utente e al contesto.
         </p>
+
       </section>
 
-      <section id="ricerca">
-        <div class="titolo-sezione">
-          <p class="etichetta">Research interests</p>
 
-          <h2>Ambiti di ricerca</h2>
+      <!-- RICERCA -->
+
+      <section id="ricerca">
+
+        <div class="titolo-sezione">
+
+          <p class="etichetta">
+            Research interests
+          </p>
+
+          <h2>
+            Ambiti di ricerca
+          </h2>
 
           <p class="sottotitolo">
             La mia ricerca studia il rapporto tra sistemi intelligenti,
             persone e dispositivi, con un approccio interdisciplinare
             orientato ad applicazioni reali.
           </p>
+
         </div>
 
+
         <div class="griglia">
+
           <article class="scheda">
-            <h3>Human-Computer Interaction</h3>
+
+            <h3>
+              Human-Computer Interaction
+            </h3>
 
             <p>
               Studio tecnologie e tecniche di interazione
@@ -518,10 +1023,15 @@
               progettazione di interfacce intelligenti, adattive
               e centrate sulle esigenze dell'utente.
             </p>
+
           </article>
 
+
           <article class="scheda">
-            <h3>Human-Centred AI</h3>
+
+            <h3>
+              Human-Centred AI
+            </h3>
 
             <p>
               Esploro metodi di Intelligenza Artificiale progettati
@@ -529,20 +1039,30 @@
               affinché i sistemi risultino accessibili, affidabili
               e utili.
             </p>
+
           </article>
 
+
           <article class="scheda">
-            <h3>Multimodal AI</h3>
+
+            <h3>
+              Multimodal AI
+            </h3>
 
             <p>
               Mi occupo di sistemi capaci di combinare dati provenienti
               da modalità e sensori differenti per comprendere meglio
               l'utente e il contesto di utilizzo.
             </p>
+
           </article>
 
+
           <article class="scheda">
-            <h3>Efficient AI ed Edge AI</h3>
+
+            <h3>
+              Efficient AI ed Edge AI
+            </h3>
 
             <p>
               Studio l'ottimizzazione di reti neurali per
@@ -550,20 +1070,30 @@
               e altri dispositivi caratterizzati da risorse
               computazionali limitate.
             </p>
+
           </article>
 
+
           <article class="scheda">
-            <h3>AI e Cybersecurity</h3>
+
+            <h3>
+              AI e Cybersecurity
+            </h3>
 
             <p>
               Mi interesso all'impiego dell'AI per autenticazione
               biometrica, interfacce sicure e applicazioni connesse
               all'interno di ecosistemi IoT.
             </p>
+
           </article>
 
+
           <article class="scheda">
-            <h3>AI e tecnologie cliniche</h3>
+
+            <h3>
+              AI e tecnologie cliniche
+            </h3>
 
             <p>
               Approfondisco l'impiego delle tecnologie ingegneristiche
@@ -571,11 +1101,17 @@
               con attenzione ai sistemi digitali e ai dispositivi
               utilizzati nei contesti clinici.
             </p>
+
           </article>
+
         </div>
 
+
         <div class="progetto">
-          <p class="etichetta">PhD research project</p>
+
+          <p class="etichetta">
+            PhD research project
+          </p>
 
           <h3>
             Ottimizzazione di reti neurali artificiali per applicazioni
@@ -588,9 +1124,12 @@
             all'esecuzione su dispositivi con capacità computazionali
             e risorse energetiche limitate.
           </p>
+
         </div>
 
+
         <div class="tag-list">
+
           <span class="tag">Human-Computer Interaction</span>
           <span class="tag">Human-Centred AI</span>
           <span class="tag">Multimodal AI</span>
@@ -600,25 +1139,42 @@
           <span class="tag">Clinical Engineering</span>
           <span class="tag">Biometrics</span>
           <span class="tag">IoT</span>
+
         </div>
+
       </section>
 
-      <section id="percorso">
-        <div class="titolo-sezione">
-          <p class="etichetta">Background</p>
 
-          <h2>Percorso accademico e professionale</h2>
+      <!-- PERCORSO -->
+
+      <section id="percorso">
+
+        <div class="titolo-sezione">
+
+          <p class="etichetta">
+            Background
+          </p>
+
+          <h2>
+            Percorso accademico e professionale
+          </h2>
 
           <p class="sottotitolo">
             Un percorso sviluppato tra formazione ingegneristica,
             ricerca accademica, collaborazione internazionale,
             applicazioni industriali e tecnologie cliniche.
           </p>
+
         </div>
 
+
         <div class="timeline">
+
           <article class="esperienza">
-            <h3>Master in Ingegneria Clinica</h3>
+
+            <h3>
+              Master in Ingegneria Clinica
+            </h3>
 
             <p class="organizzazione">
               In corso
@@ -631,39 +1187,54 @@
               l'innovazione digitale e l'Intelligenza Artificiale
               applicata alla medicina.
             </p>
+
           </article>
 
+
           <article class="esperienza">
-            <h3>Visiting PhD Student</h3>
+
+            <h3>
+              Visiting PhD Student
+            </h3>
 
             <p class="organizzazione">
-              University of Glasgow · Glasgow, Regno Unito · 2026
+              🇬🇧 University of Glasgow · Glasgow · 2026
             </p>
 
             <p>
               Periodo internazionale di ricerca svolto da marzo
               a giugno 2026 nell'ambito del percorso di dottorato.
             </p>
+
           </article>
 
+
           <article class="esperienza">
-            <h3>Dottorato di ricerca</h3>
+
+            <h3>
+              Dottorato di ricerca
+            </h3>
 
             <p class="organizzazione">
-              Università degli Studi di Enna “Kore” · Dal 2023
+              🇮🇹 Università degli Studi di Enna “Kore” · Dal 2023
             </p>
 
             <p>
               Ricerca sull'ottimizzazione di reti neurali artificiali
               per applicazioni multimodali eseguite su dispositivi edge.
             </p>
+
           </article>
 
+
           <article class="esperienza">
-            <h3>Collaborazione industriale</h3>
+
+            <h3>
+              Collaborazione industriale
+            </h3>
 
             <p class="organizzazione">
-              STMicroelectronics · Catania · Dal 2025
+              🇮🇹 STMicroelectronics · Catania · Dal 2025
             </p>
 
             <p>
@@ -671,13 +1242,18 @@
               di dottorato, con attenzione all'applicazione di
               tecnologie AI in scenari reali.
             </p>
+
           </article>
 
+
           <article class="esperienza">
-            <h3>Ricerca presso STMLab</h3>
+
+            <h3>
+              Ricerca presso STMLab
+            </h3>
 
             <p class="organizzazione">
-              Università degli Studi di Enna “Kore” · Dal 2023
+              🇮🇹 Università degli Studi di Enna “Kore” · Dal 2023
             </p>
 
             <p>
@@ -685,28 +1261,36 @@
               multimodali intelligenti e processi di adattamento
               dell'interfaccia basati su Intelligenza Artificiale.
             </p>
+
           </article>
 
+
           <article class="esperienza">
+
             <h3>
               Laurea magistrale in Ingegneria dell'Intelligenza
               Artificiale e della Sicurezza Informatica
             </h3>
 
             <p class="organizzazione">
-              Università degli Studi di Enna “Kore” · 2024
+              🇮🇹 Università degli Studi di Enna “Kore” · 2024
             </p>
 
             <p>
               Laurea conseguita con votazione di 110/110 e lode.
             </p>
+
           </article>
 
+
           <article class="esperienza">
-            <h3>Laurea in Ingegneria Informatica</h3>
+
+            <h3>
+              Laurea in Ingegneria Informatica
+            </h3>
 
             <p class="organizzazione">
-              Università degli Studi di Enna “Kore” · 2022
+              🇮🇹 Università degli Studi di Enna “Kore” · 2022
             </p>
 
             <p>
@@ -714,15 +1298,27 @@
               alla programmazione e alla progettazione di sistemi
               software.
             </p>
+
           </article>
+
         </div>
+
       </section>
 
-      <section id="conferenze">
-        <div class="titolo-sezione">
-          <p class="etichetta">International experience</p>
 
-          <h2>Conferenze internazionali</h2>
+      <!-- CONFERENZE -->
+
+      <section id="conferenze">
+
+        <div class="titolo-sezione">
+
+          <p class="etichetta">
+            International experience
+          </p>
+
+          <h2>
+            Conferenze internazionali
+          </h2>
 
           <p class="sottotitolo">
             Ho partecipato a numerose conferenze internazionali,
@@ -730,102 +1326,237 @@
             scientifici e collaborando anche all'organizzazione
             degli eventi.
           </p>
+
         </div>
 
-        <div class="griglia">
-          <article class="scheda">
-            <h3>ICPR 2026 e MCMI 2026</h3>
 
-            <p>
-              Partecipazione alla 28th International Conference on Pattern
-              Recognition (ICPR 2026), svoltasi a Lione, Francia, dal 17
-              al 22 agosto 2026, e al 2nd Workshop on Multi and Cross-Modal
-              Information (MCMI 2026), evento IAPR co-located con la conferenza.
+        <div class="conference-grid">
+
+          <!-- ICPR -->
+
+          <article class="conference-card">
+
+            <div class="conference-top">
+
+              <h3>
+                ICPR & MCMI
+              </h3>
+
+              <span class="conference-year">
+                2026
+              </span>
+
+            </div>
+
+            <p class="conference-location">
+              🇫🇷 Lyon, France
             </p>
 
-            <p>
-              Il workshop, dedicato all'apprendimento multimodale e
-              all'integrazione di informazioni provenienti da testo, immagini,
-              audio e altri segnali, si è svolto il 21 agosto 2026.
-            </p>
+            <div class="conference-description">
 
-            <p>
+              <p>
+                Partecipazione alla 28th International Conference on
+                Pattern Recognition (ICPR 2026) e al 2nd Workshop on
+                Multi and Cross-Modal Information (MCMI 2026),
+                co-located con la conferenza.
+              </p>
+
+              <p>
+                Il workshop, dedicato all'apprendimento multimodale
+                e all'integrazione di informazioni provenienti da
+                testo, immagini, audio e altri segnali, si è svolto
+                il 21 agosto 2026.
+              </p>
+
+            </div>
+
+            <div class="conference-links">
+
               <a
                 href="https://icpr2026.org/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Sito ICPR 2026
+                ICPR 2026 ↗
               </a>
-
-              ·
 
               <a
                 href="https://mcmi-workshop.github.io/2026/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Sito MCMI 2026
+                MCMI 2026 ↗
               </a>
-            </p>
-          </article>
-          <article class="scheda">
-            <h3>PerDis 2026</h3>
 
-            <p>
-              International Symposium on Pervasive Displays,
-              Monaco di Baviera. Autrice e presenter di un poster paper.
-            </p>
+            </div>
+
           </article>
 
-          <article class="scheda">
-            <h3>MUM 2025</h3>
 
-            <p>
-              International Conference on Mobile and Ubiquitous
-              Multimedia, Enna. Student Volunteers Chair, autrice
-              e presenter di un poster paper.
+          <!-- PERDIS -->
+
+          <article class="conference-card">
+
+            <div class="conference-top">
+
+              <h3>
+                PerDis
+              </h3>
+
+              <span class="conference-year">
+                2026
+              </span>
+
+            </div>
+
+            <p class="conference-location">
+              🇩🇪 Munich, Germany
             </p>
+
+            <div class="conference-description">
+
+              <p>
+                International Symposium on Pervasive Displays.
+                Autrice e presenter di un poster paper.
+              </p>
+
+            </div>
+
           </article>
 
-          <article class="scheda">
-            <h3>CHItaly 2025</h3>
 
-            <p>
-              Conferenza della comunità italiana ACM SIGCHI,
-              Salerno. Autrice e presenter di un poster paper
-              e di un workshop paper per EMPATH-IA.
+          <!-- MUM 2025 -->
+
+          <article class="conference-card">
+
+            <div class="conference-top">
+
+              <h3>
+                MUM
+              </h3>
+
+              <span class="conference-year">
+                2025
+              </span>
+
+            </div>
+
+            <p class="conference-location">
+              🇮🇹 Enna, Italy
             </p>
+
+            <div class="conference-description">
+
+              <p>
+                International Conference on Mobile and Ubiquitous
+                Multimedia. Student Volunteers Chair, autrice
+                e presenter di un poster paper.
+              </p>
+
+            </div>
+
           </article>
 
-          <article class="scheda">
-            <h3>MUM 2024</h3>
 
-            <p>
-              International Conference on Mobile and Ubiquitous
-              Multimedia, Stoccolma. Presentazione del progetto
-              di ricerca al Doctoral Consortium e attività come
-              Student Volunteer.
+          <!-- CHITALY -->
+
+          <article class="conference-card">
+
+            <div class="conference-top">
+
+              <h3>
+                CHItaly
+              </h3>
+
+              <span class="conference-year">
+                2025
+              </span>
+
+            </div>
+
+            <p class="conference-location">
+              🇮🇹 Salerno, Italy
             </p>
+
+            <div class="conference-description">
+
+              <p>
+                Conferenza della comunità italiana ACM SIGCHI.
+                Autrice e presenter di un poster paper e di un
+                workshop paper per EMPATH-IA.
+              </p>
+
+            </div>
+
           </article>
+
+
+          <!-- MUM 2024 -->
+
+          <article class="conference-card">
+
+            <div class="conference-top">
+
+              <h3>
+                MUM
+              </h3>
+
+              <span class="conference-year">
+                2024
+              </span>
+
+            </div>
+
+            <p class="conference-location">
+              🇸🇪 Stockholm, Sweden
+            </p>
+
+            <div class="conference-description">
+
+              <p>
+                International Conference on Mobile and Ubiquitous
+                Multimedia. Presentazione del progetto di ricerca
+                al Doctoral Consortium e attività come Student Volunteer.
+              </p>
+
+            </div>
+
+          </article>
+
         </div>
+
       </section>
 
-      <section id="attivita">
-        <div class="titolo-sezione">
-          <p class="etichetta">Academic service</p>
 
-          <h2>Attività accademiche e divulgative</h2>
+      <!-- ATTIVITA -->
+
+      <section id="attivita">
+
+        <div class="titolo-sezione">
+
+          <p class="etichetta">
+            Academic service
+          </p>
+
+          <h2>
+            Attività accademiche e divulgative
+          </h2>
 
           <p class="sottotitolo">
             Oltre alla ricerca, partecipo ad attività accademiche,
             divulgative e di revisione scientifica.
           </p>
+
         </div>
 
+
         <div class="griglia">
+
           <article class="scheda">
-            <h3>Cultore della materia</h3>
+
+            <h3>
+              Cultore della materia
+            </h3>
 
             <p>
               Cultore della materia per il settore scientifico
@@ -833,51 +1564,81 @@
               Studi di Enna “Kore”, a partire dall'anno accademico
               2025–2026.
             </p>
+
           </article>
 
+
           <article class="scheda">
-            <h3>Peer review</h3>
+
+            <h3>
+              Peer review
+            </h3>
 
             <p>
               Revisore di contributi scientifici per i workshop
               SPHERA di ETRA 2026 e MCMI di ICPR 2026.
             </p>
+
           </article>
 
+
           <article class="scheda">
-            <h3>Divulgazione scientifica</h3>
+
+            <h3>
+              Divulgazione scientifica
+            </h3>
 
             <p>
               Relatrice di seminari su reti neurali, data fusion,
               dispositivi a risorse ridotte, applicazioni mediche
               e Intelligenza Artificiale.
             </p>
+
           </article>
 
+
           <article class="scheda">
-            <h3>Competenze tecniche</h3>
+
+            <h3>
+              Competenze tecniche
+            </h3>
 
             <p>
               Python, PyTorch, TensorFlow, Keras, Scikit-learn,
               NumPy, SciPy, pandas, Java, SQL e MATLAB.
             </p>
+
           </article>
+
         </div>
+
       </section>
 
-      <section id="profili">
-        <div class="titolo-sezione">
-          <p class="etichetta">Online</p>
 
-          <h2>Profili e curriculum</h2>
+      <!-- PROFILI -->
+
+      <section id="profili">
+
+        <div class="titolo-sezione">
+
+          <p class="etichetta">
+            Online
+          </p>
+
+          <h2>
+            Profili e curriculum
+          </h2>
 
           <p class="sottotitolo">
             Consulta le mie pubblicazioni, le attività professionali
             e il curriculum completo.
           </p>
+
         </div>
 
+
         <div class="pulsanti">
+
           <a
             class="pulsante"
             href="https://www.linkedin.com/in/sofia-marilina-glorioso-engeneer/"
@@ -920,14 +1681,25 @@
           >
             Scarica il CV
           </a>
+
         </div>
+
       </section>
 
-      <section id="contatti">
-        <div class="contatti">
-          <p class="etichetta">Get in touch</p>
 
-          <h2>Contatti</h2>
+      <!-- CONTATTI -->
+
+      <section id="contatti">
+
+        <div class="contatti">
+
+          <p class="etichetta">
+            Get in touch
+          </p>
+
+          <h2>
+            Contatti
+          </h2>
 
           <p>
             Per collaborazioni scientifiche, attività accademiche
@@ -935,7 +1707,9 @@
             uno dei seguenti indirizzi.
           </p>
 
+
           <div class="elenco-contatti">
+
             <p>
               <strong>Email:</strong>
 
@@ -944,6 +1718,7 @@
               </a>
             </p>
 
+
             <p>
               <strong>Email istituzionale:</strong>
 
@@ -951,13 +1726,22 @@
                 sofiamarilina.glorioso@unikorestudent.it
               </a>
             </p>
+
           </div>
+
         </div>
+
       </section>
+
     </main>
 
+
+    <!-- FOOTER -->
+
     <footer>
-      © 2026 Sofia Marilina Glorioso · Academic website
+      © 2026 <strong>Sofia Marilina Glorioso</strong>
+      · Academic website
     </footer>
+
   </body>
 </html>
