@@ -2,6 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8">
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1"
@@ -9,20 +10,23 @@
 
     <meta
       name="description"
-      content="Sito personale e accademico di Sofia Marilina Glorioso"
+      content="Sito accademico e professionale di Sofia Marilina Glorioso, PhD Candidate in Intelligenza Artificiale e Cybersecurity."
     >
 
     <title>Sofia Marilina Glorioso</title>
 
     <style>
       :root {
-        --primary: #153b65;
-        --secondary: #2d6da3;
-        --background: #f4f7fa;
+        --primary: #c6dae7;
+        --primary-light: #edf5f9;
+        --primary-dark: #24445c;
+        --accent: #527d99;
+        --background: #f7fafc;
         --surface: #ffffff;
-        --text: #263238;
-        --muted: #607080;
-        --border: #dce5ec;
+        --text: #25343f;
+        --muted: #5d6c77;
+        --border: #dce8ef;
+        --shadow: 0 12px 30px rgba(36, 68, 92, 0.1);
       }
 
       * {
@@ -41,77 +45,115 @@
         line-height: 1.7;
       }
 
-      header {
-        padding: 60px 20px;
-        color: white;
-        text-align: center;
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--secondary)
-        );
+      a {
+        color: var(--primary-dark);
       }
 
-      .foto-profilo {
-        width: 190px;
-        height: 190px;
-        object-fit: cover;
-        border: 5px solid white;
-        border-radius: 50%;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      }
-
-      h1 {
-        margin: 20px 0 5px;
-        font-size: 2.4rem;
-      }
-
-      .ruolo {
-        max-width: 700px;
-        margin: 0 auto;
-        color: #e5eff8;
-        font-size: 1.05rem;
-      }
+      /* Menu */
 
       nav {
         position: sticky;
         top: 0;
-        z-index: 10;
-        padding: 15px;
-        text-align: center;
-        background-color: var(--surface);
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.96);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(10px);
       }
 
-      nav a {
-        margin: 0 12px;
-        color: var(--primary);
+      .nav-container {
+        width: min(1100px, calc(100% - 40px));
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 70px;
+      }
+
+      .logo {
+        color: var(--primary-dark);
+        font-size: 1.1rem;
         font-weight: bold;
         text-decoration: none;
       }
 
-      nav a:hover {
-        color: var(--secondary);
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
       }
 
-      main {
-        width: min(900px, calc(100% - 40px));
-        margin: 40px auto;
+      .nav-links a {
+        color: var(--text);
+        font-size: 0.95rem;
+        font-weight: bold;
+        text-decoration: none;
       }
 
-      section {
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      /* Presentazione */
+
+      header {
+        padding: 90px 20px;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(198, 218, 231, 0.98),
+            rgba(237, 245, 249, 0.98)
+          );
+      }
+
+      .hero {
+        width: min(1050px, 100%);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 230px 1fr;
+        gap: 55px;
+        align-items: center;
+      }
+
+      .foto-profilo {
+        width: 230px;
+        height: 230px;
+        object-fit: cover;
+        border: 7px solid white;
+        border-radius: 50%;
+        box-shadow: var(--shadow);
+      }
+
+      .etichetta {
+        margin: 0 0 10px;
+        color: var(--primary-dark);
+        font-size: 0.85rem;
+        font-weight: bold;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--primary-dark);
+        font-size: clamp(2.3rem, 6vw, 4rem);
+        line-height: 1.1;
+      }
+
+      .titolo-professionale {
+        margin: 18px 0;
+        color: var(--text);
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      .introduzione {
+        max-width: 720px;
         margin-bottom: 28px;
-        padding: 30px;
-        background-color: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        box-shadow: 0 5px 18px rgba(30, 55, 80, 0.07);
+        color: var(--muted);
+        font-size: 1.06rem;
       }
 
-      h2 {
-        margin-top: 0;
-        color: var(--primary);
-      }
+      /* Pulsanti */
 
       .pulsanti {
         display: flex;
@@ -121,54 +163,215 @@
 
       .pulsante {
         display: inline-block;
-        padding: 11px 18px;
+        padding: 11px 20px;
         color: white;
-        background-color: var(--secondary);
+        background-color: var(--primary-dark);
+        border: 2px solid var(--primary-dark);
         border-radius: 8px;
+        font-weight: bold;
         text-decoration: none;
-        transition: transform 0.2s, background-color 0.2s;
+        transition: 0.2s ease;
       }
 
       .pulsante:hover {
-        background-color: var(--primary);
+        color: var(--primary-dark);
+        background-color: transparent;
         transform: translateY(-2px);
       }
 
-      .contatto {
+      .pulsante-secondario {
+        color: var(--primary-dark);
+        background-color: transparent;
+      }
+
+      .pulsante-secondario:hover {
+        color: white;
+        background-color: var(--primary-dark);
+      }
+
+      /* Contenuto */
+
+      main {
+        width: min(1000px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 75px 0;
+        scroll-margin-top: 70px;
+      }
+
+      section + section {
+        border-top: 1px solid var(--border);
+      }
+
+      .titolo-sezione {
+        max-width: 720px;
+        margin-bottom: 35px;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        color: var(--primary-dark);
+        font-size: 2rem;
+      }
+
+      .sottotitolo {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      /* Schede */
+
+      .griglia {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .scheda {
+        padding: 26px;
+        background-color: var(--surface);
+        border: 1px solid var(--border);
+        border-top: 5px solid var(--primary);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+
+      .scheda h3 {
+        margin: 0 0 12px;
+        color: var(--primary-dark);
+      }
+
+      .scheda p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      /* Percorso */
+
+      .percorso {
+        display: grid;
+        gap: 20px;
+      }
+
+      .esperienza {
+        position: relative;
+        padding: 25px 28px 25px 32px;
+        background-color: var(--surface);
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--primary);
+        border-radius: 10px;
+      }
+
+      .esperienza h3 {
+        margin: 0 0 4px;
+        color: var(--primary-dark);
+      }
+
+      .esperienza .organizzazione {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .esperienza p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Contatti */
+
+      .contatti {
+        padding: 45px;
+        background-color: var(--primary);
+        border-radius: 16px;
+      }
+
+      .contatti h2 {
+        color: var(--primary-dark);
+      }
+
+      .elenco-contatti {
+        display: grid;
+        gap: 12px;
+        margin: 25px 0;
+      }
+
+      .elenco-contatti p {
+        margin: 0;
         overflow-wrap: anywhere;
       }
 
-      .contatto a {
-        color: var(--secondary);
-      }
+      /* Footer */
 
       footer {
-        padding: 25px;
+        margin-top: 70px;
+        padding: 30px 20px;
         color: var(--muted);
         text-align: center;
+        background-color: var(--surface);
+        border-top: 1px solid var(--border);
       }
 
-      @media (max-width: 600px) {
-        header {
-          padding: 45px 20px;
+      /* Telefono e tablet */
+
+      @media (max-width: 800px) {
+        .nav-container {
+          padding: 14px 0;
+          flex-direction: column;
+          gap: 10px;
         }
 
-        h1 {
-          font-size: 1.9rem;
+        .nav-links {
+          justify-content: center;
+          gap: 12px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          text-align: center;
         }
 
         .foto-profilo {
-          width: 155px;
-          height: 155px;
+          width: 190px;
+          height: 190px;
+          margin: 0 auto;
         }
 
-        nav a {
-          display: inline-block;
-          margin: 5px 8px;
+        .introduzione {
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .pulsanti {
+          justify-content: center;
+        }
+
+        .griglia {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 500px) {
+        header {
+          padding: 55px 20px;
         }
 
         section {
-          padding: 22px;
+          padding: 55px 0;
+        }
+
+        .logo {
+          display: none;
+        }
+
+        .nav-links {
+          font-size: 0.9rem;
+        }
+
+        .contatti {
+          padding: 28px 22px;
         }
 
         .pulsante {
@@ -180,58 +383,215 @@
   </head>
 
   <body>
-    <header>
-      <img
-        src="foto-profilo.jpg"
-        alt="Foto di Sofia Marilina Glorioso"
-        class="foto-profilo"
-      >
-
-      <h1>Sofia Marilina Glorioso</h1>
-
-      <p class="ruolo">
-        PhD Candidate at University of Enna “Kore” |
-        Research in collaboration with STMicroelectronics |
-        MSc in AI and Cybersecurity
-      </p>
-    </header>
-
     <nav>
-      <a href="#chi-sono">Chi sono</a>
-      <a href="#attivita">Attività</a>
-      <a href="#profili">Profili</a>
-      <a href="#contatti">Contatti</a>
+      <div class="nav-container">
+        <a class="logo" href="#home">
+          SMG
+        </a>
+
+        <div class="nav-links">
+          <a href="#chi-sono">Chi sono</a>
+          <a href="#ricerca">Ricerca</a>
+          <a href="#percorso">Percorso</a>
+          <a href="#profili">Profili</a>
+          <a href="#contatti">Contatti</a>
+        </div>
+      </div>
     </nav>
+
+    <header id="home">
+      <div class="hero">
+        <img
+          src="foto-profilo.jpg"
+          alt="Foto di Sofia Marilina Glorioso"
+          class="foto-profilo"
+        >
+
+        <div>
+          <p class="etichetta">
+            Artificial Intelligence · Cybersecurity · Research
+          </p>
+
+          <h1>Sofia Marilina Glorioso</h1>
+
+          <p class="titolo-professionale">
+            PhD Candidate presso l'Università degli Studi di Enna “Kore”
+          </p>
+
+          <p class="introduzione">
+            Svolgo attività di ricerca nell'ambito dell'Intelligenza
+            Artificiale, con particolare interesse per i sistemi
+            intelligenti efficienti, l'elaborazione di dati multimodali
+            e le applicazioni dell'AI in contesti reali. La mia ricerca
+            è condotta in collaborazione con STMicroelectronics.
+          </p>
+
+          <div class="pulsanti">
+            <a
+              class="pulsante"
+              href="#ricerca"
+            >
+              Scopri la mia ricerca
+            </a>
+
+            <a
+              class="pulsante pulsante-secondario"
+              href="#contatti"
+            >
+              Contattami
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <main>
       <section id="chi-sono">
-        <h2>Chi sono</h2>
+        <div class="titolo-sezione">
+          <p class="etichetta">Profilo</p>
+          <h2>Chi sono</h2>
+        </div>
 
         <p>
-          Benvenuti nel mio sito personale! Io sono Sofia Marilina
-          Glorioso e qui potrete trovare informazioni sulla mia attività,
-          sui miei interessi di ricerca e sul mio percorso professionale.
+          Sono Sofia Marilina Glorioso, PhD Candidate presso
+          l'Università degli Studi di Enna “Kore”. Il mio percorso
+          accademico nasce dall'interesse per l'Intelligenza Artificiale,
+          la Cybersecurity e lo sviluppo di tecnologie capaci di
+          affrontare problemi concreti.
+        </p>
+
+        <p>
+          Dopo una formazione magistrale in Artificial Intelligence
+          and Cybersecurity, ho proseguito il mio percorso dedicandomi
+          alla ricerca. Attualmente lavoro in collaborazione con
+          STMicroelectronics, confrontandomi con le esigenze e i vincoli
+          che caratterizzano l'applicazione dell'AI in ambito industriale.
+        </p>
+
+        <p>
+          Il mio obiettivo è contribuire alla progettazione di sistemi
+          intelligenti affidabili, efficienti e utilizzabili al di fuori
+          dei soli ambienti sperimentali, combinando ricerca accademica,
+          innovazione tecnologica e applicazioni reali.
         </p>
       </section>
 
-      <section id="attivita">
-        <h2>Di cosa mi occupo</h2>
+      <section id="ricerca">
+        <div class="titolo-sezione">
+          <p class="etichetta">Research interests</p>
 
-        <p>
-          Sono PhD Candidate presso l'Università degli Studi di Enna
-          “Kore” e svolgo attività di ricerca in collaborazione con
-          STMicroelectronics. Ho conseguito una laurea magistrale
-          nell'ambito dell'Intelligenza Artificiale e della Cybersecurity.
-        </p>
+          <h2>Di cosa mi occupo</h2>
+
+          <p class="sottotitolo">
+            La mia attività si concentra sullo sviluppo e
+            sull'applicazione di metodi di Intelligenza Artificiale
+            efficienti, sicuri e orientati a scenari concreti.
+          </p>
+        </div>
+
+        <div class="griglia">
+          <article class="scheda">
+            <h3>Efficient AI ed Edge AI</h3>
+
+            <p>
+              Studio tecniche per ottimizzare modelli di reti neurali
+              destinati a dispositivi con risorse limitate, come
+              microcontrollori, microprocessori e sistemi embedded.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>Multimodal AI</h3>
+
+            <p>
+              Mi interesso alla combinazione di informazioni provenienti
+              da sensori e modalità differenti, con l'obiettivo di
+              ottenere sistemi più completi, robusti e consapevoli
+              del contesto.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>AI e Cybersecurity</h3>
+
+            <p>
+              Esploro l'impiego dell'Intelligenza Artificiale per
+              applicazioni sicure, inclusi sistemi biometrici,
+              autenticazione e ambienti connessi basati su IoT.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="percorso">
+        <div class="titolo-sezione">
+          <p class="etichetta">Background</p>
+
+          <h2>Percorso accademico e professionale</h2>
+
+          <p class="sottotitolo">
+            Un percorso costruito tra formazione specialistica,
+            ricerca universitaria e collaborazione industriale.
+          </p>
+        </div>
+
+        <div class="percorso">
+          <article class="esperienza">
+            <h3>PhD Candidate</h3>
+
+            <p class="organizzazione">
+              Università degli Studi di Enna “Kore”
+            </p>
+
+            <p>
+              Attività di ricerca nell'ambito dell'Intelligenza
+              Artificiale, con attenzione all'efficienza dei modelli,
+              ai dati multimodali e alle applicazioni su dispositivi
+              con risorse computazionali limitate.
+            </p>
+          </article>
+
+          <article class="esperienza">
+            <h3>Collaborazione di ricerca</h3>
+
+            <p class="organizzazione">
+              STMicroelectronics
+            </p>
+
+            <p>
+              Ricerca orientata al trasferimento di tecniche di
+              Intelligenza Artificiale verso scenari industriali,
+              piattaforme embedded e applicazioni reali.
+            </p>
+          </article>
+
+          <article class="esperienza">
+            <h3>Laurea magistrale</h3>
+
+            <p class="organizzazione">
+              Artificial Intelligence and Cybersecurity
+            </p>
+
+            <p>
+              Formazione avanzata sui metodi dell'Intelligenza
+              Artificiale, sulla sicurezza informatica e sulla
+              progettazione di sistemi software intelligenti.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section id="profili">
-        <h2>Profili professionali</h2>
+        <div class="titolo-sezione">
+          <p class="etichetta">Online</p>
 
-        <p>
-          Consulta i miei profili per conoscere le pubblicazioni,
-          le attività di ricerca e le esperienze professionali.
-        </p>
+          <h2>Profili professionali</h2>
+
+          <p class="sottotitolo">
+            Consulta i miei profili per approfondire le pubblicazioni,
+            le collaborazioni e le attività professionali.
+          </p>
+        </div>
 
         <div class="pulsanti">
           <a
@@ -255,26 +615,38 @@
       </section>
 
       <section id="contatti">
-        <h2>Contatti</h2>
+        <div class="contatti">
+          <p class="etichetta">Get in touch</p>
 
-        <p class="contatto">
-          Email:
-          <a href="mailto:sofiamarilina.glorioso@gmail.com">
-            sofiamarilina.glorioso@gmail.com
-          </a>
-        </p>
+          <h2>Contatti</h2>
 
-        <p class="contatto">
-          Email istituzionale:
-          <a href="mailto:sofiamarilina.glorioso@unikorestudent.it">
-            sofiamarilina.glorioso@unikorestudent.it
-          </a>
-        </p>
+          <p>
+            Per informazioni, collaborazioni scientifiche o opportunità
+            professionali puoi contattarmi attraverso uno dei seguenti
+            indirizzi.
+          </p>
+
+          <div class="elenco-contatti">
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:sofiamarilina.glorioso@gmail.com">
+                sofiamarilina.glorioso@gmail.com
+              </a>
+            </p>
+
+            <p>
+              <strong>Email istituzionale:</strong>
+              <a href="mailto:sofiamarilina.glorioso@unikorestudent.it">
+                sofiamarilina.glorioso@unikorestudent.it
+              </a>
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer>
-      © 2026 Sofia Marilina Glorioso
+      © 2026 Sofia Marilina Glorioso · Academic website
     </footer>
   </body>
 </html>
