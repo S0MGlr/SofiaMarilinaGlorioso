@@ -7,92 +7,274 @@
       content="width=device-width, initial-scale=1"
     >
 
+    <meta
+      name="description"
+      content="Sito personale e accademico di Sofia Marilina Glorioso"
+    >
+
     <title>Sofia Marilina Glorioso</title>
 
     <style>
+      :root {
+        --primary: #153b65;
+        --secondary: #2d6da3;
+        --background: #f4f7fa;
+        --surface: #ffffff;
+        --text: #263238;
+        --muted: #607080;
+        --border: #dce5ec;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
+        margin: 0;
+        color: var(--text);
+        background-color: var(--background);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.7;
+      }
+
+      header {
+        padding: 60px 20px;
+        color: white;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary)
+        );
       }
 
       .foto-profilo {
-        width: 200px;
-        height: 200px;
+        width: 190px;
+        height: 190px;
         object-fit: cover;
+        border: 5px solid white;
         border-radius: 50%;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
       }
 
-      a {
-        color: #0969da;
+      h1 {
+        margin: 20px 0 5px;
+        font-size: 2.4rem;
+      }
+
+      .ruolo {
+        max-width: 700px;
+        margin: 0 auto;
+        color: #e5eff8;
+        font-size: 1.05rem;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 15px;
+        text-align: center;
+        background-color: var(--surface);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      nav a {
+        margin: 0 12px;
+        color: var(--primary);
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        color: var(--secondary);
+      }
+
+      main {
+        width: min(900px, calc(100% - 40px));
+        margin: 40px auto;
+      }
+
+      section {
+        margin-bottom: 28px;
+        padding: 30px;
+        background-color: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 5px 18px rgba(30, 55, 80, 0.07);
+      }
+
+      h2 {
+        margin-top: 0;
+        color: var(--primary);
+      }
+
+      .pulsanti {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .pulsante {
+        display: inline-block;
+        padding: 11px 18px;
+        color: white;
+        background-color: var(--secondary);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: transform 0.2s, background-color 0.2s;
+      }
+
+      .pulsante:hover {
+        background-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      .contatto {
+        overflow-wrap: anywhere;
+      }
+
+      .contatto a {
+        color: var(--secondary);
+      }
+
+      footer {
+        padding: 25px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          padding: 45px 20px;
+        }
+
+        h1 {
+          font-size: 1.9rem;
+        }
+
+        .foto-profilo {
+          width: 155px;
+          height: 155px;
+        }
+
+        nav a {
+          display: inline-block;
+          margin: 5px 8px;
+        }
+
+        section {
+          padding: 22px;
+        }
+
+        .pulsante {
+          width: 100%;
+          text-align: center;
+        }
       }
     </style>
   </head>
 
   <body>
-    <h1>Sofia Marilina Glorioso</h1>
-
-    <!-- Foto personale -->
-    <img
-      src="foto-profilo.jpg"
-      alt="Foto di Sofia Marilina Glorioso"
-      class="foto-profilo"
-    >
-
-    <h2>Chi sono</h2>
-
-    <p>
-      Benvenuti nel mio sito personale!
-      Io sono Sofia Marilina Glorioso e qui potrete trovare informazioni
-      sulla mia attività e sul mio percorso.
-    </p>
-
-    <h2>Di cosa mi occupo</h2>
-
-    <p>
-      PhD Candidate at University of Enna “Kore” |
-      Research in collaboration with STMicroelectronics |
-      MSc in AI and Cybersecurity
-    </p>
-
-    <h2>Profili professionali</h2>
-
-    <p>
-      <a
-        href="https://www.linkedin.com/in/sofia-marilina-glorioso-engeneer/"
-        target="_blank"
-        rel="noopener noreferrer"
+    <header>
+      <img
+        src="foto-profilo.jpg"
+        alt="Foto di Sofia Marilina Glorioso"
+        class="foto-profilo"
       >
-        LinkedIn
-      </a>
-    </p>
 
-    <p>
-      <a
-        href="https://scholar.google.com/citations?user=azUk0jMAAAAJ&hl=it"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Google Scholar
-      </a>
-    </p>
+      <h1>Sofia Marilina Glorioso</h1>
 
-    <h2>Contatti</h2>
+      <p class="ruolo">
+        PhD Candidate at University of Enna “Kore” |
+        Research in collaboration with STMicroelectronics |
+        MSc in AI and Cybersecurity
+      </p>
+    </header>
 
-    <p>
-      Email:
-      <a href="mailto:sofiamarilina.glorioso@gmail.com">
-        sofiamarilina.glorioso@gmail.com
-      </a>
-    </p>
+    <nav>
+      <a href="#chi-sono">Chi sono</a>
+      <a href="#attivita">Attività</a>
+      <a href="#profili">Profili</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
 
-    <p>
-      Email istituzionale:
-      <a href="mailto:sofiamarilina.glorioso@unikorestudent.it">
-        sofiamarilina.glorioso@unikorestudent.it
-      </a>
-    </p>
+    <main>
+      <section id="chi-sono">
+        <h2>Chi sono</h2>
+
+        <p>
+          Benvenuti nel mio sito personale! Io sono Sofia Marilina
+          Glorioso e qui potrete trovare informazioni sulla mia attività,
+          sui miei interessi di ricerca e sul mio percorso professionale.
+        </p>
+      </section>
+
+      <section id="attivita">
+        <h2>Di cosa mi occupo</h2>
+
+        <p>
+          Sono PhD Candidate presso l'Università degli Studi di Enna
+          “Kore” e svolgo attività di ricerca in collaborazione con
+          STMicroelectronics. Ho conseguito una laurea magistrale
+          nell'ambito dell'Intelligenza Artificiale e della Cybersecurity.
+        </p>
+      </section>
+
+      <section id="profili">
+        <h2>Profili professionali</h2>
+
+        <p>
+          Consulta i miei profili per conoscere le pubblicazioni,
+          le attività di ricerca e le esperienze professionali.
+        </p>
+
+        <div class="pulsanti">
+          <a
+            class="pulsante"
+            href="https://www.linkedin.com/in/sofia-marilina-glorioso-engeneer/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            class="pulsante"
+            href="https://scholar.google.com/citations?user=azUk0jMAAAAJ&hl=it"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google Scholar
+          </a>
+        </div>
+      </section>
+
+      <section id="contatti">
+        <h2>Contatti</h2>
+
+        <p class="contatto">
+          Email:
+          <a href="mailto:sofiamarilina.glorioso@gmail.com">
+            sofiamarilina.glorioso@gmail.com
+          </a>
+        </p>
+
+        <p class="contatto">
+          Email istituzionale:
+          <a href="mailto:sofiamarilina.glorioso@unikorestudent.it">
+            sofiamarilina.glorioso@unikorestudent.it
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 Sofia Marilina Glorioso
+    </footer>
   </body>
 </html>
