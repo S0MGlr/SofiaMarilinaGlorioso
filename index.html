@@ -10,7 +10,7 @@
 
     <meta
       name="description"
-      content="Sito accademico e professionale di Sofia Marilina Glorioso, PhD Candidate in Intelligenza Artificiale e Cybersecurity."
+      content="Sito accademico di Sofia Marilina Glorioso, PhD Candidate in Artificial Intelligence, Human-Computer Interaction e Cybersecurity."
     >
 
     <title>Sofia Marilina Glorioso</title>
@@ -18,7 +18,7 @@
     <style>
       :root {
         --primary: #c6dae7;
-        --primary-light: #edf5f9;
+        --primary-light: #eef6fa;
         --primary-dark: #24445c;
         --accent: #527d99;
         --background: #f7fafc;
@@ -49,8 +49,6 @@
         color: var(--primary-dark);
       }
 
-      /* Menu */
-
       nav {
         position: sticky;
         top: 0;
@@ -61,12 +59,12 @@
       }
 
       .nav-container {
-        width: min(1100px, calc(100% - 40px));
+        width: min(1150px, calc(100% - 40px));
+        min-height: 70px;
         margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 70px;
       }
 
       .logo {
@@ -79,12 +77,12 @@
       .nav-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 22px;
+        gap: 20px;
       }
 
       .nav-links a {
         color: var(--text);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: bold;
         text-decoration: none;
       }
@@ -93,23 +91,21 @@
         color: var(--accent);
       }
 
-      /* Presentazione */
-
       header {
         padding: 90px 20px;
         background:
           linear-gradient(
             135deg,
-            rgba(198, 218, 231, 0.98),
-            rgba(237, 245, 249, 0.98)
+            rgba(198, 218, 231, 1),
+            rgba(238, 246, 250, 1)
           );
       }
 
       .hero {
-        width: min(1050px, 100%);
+        width: min(1080px, 100%);
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 230px 1fr;
+        grid-template-columns: 240px 1fr;
         gap: 55px;
         align-items: center;
       }
@@ -126,7 +122,7 @@
       .etichetta {
         margin: 0 0 10px;
         color: var(--primary-dark);
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         font-weight: bold;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -135,25 +131,23 @@
       h1 {
         margin: 0;
         color: var(--primary-dark);
-        font-size: clamp(2.3rem, 6vw, 4rem);
+        font-size: clamp(2.4rem, 6vw, 4rem);
         line-height: 1.1;
       }
 
       .titolo-professionale {
         margin: 18px 0;
         color: var(--text);
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         font-weight: bold;
       }
 
       .introduzione {
-        max-width: 720px;
+        max-width: 760px;
         margin-bottom: 28px;
         color: var(--muted);
-        font-size: 1.06rem;
+        font-size: 1.05rem;
       }
-
-      /* Pulsanti */
 
       .pulsanti {
         display: flex;
@@ -189,10 +183,8 @@
         background-color: var(--primary-dark);
       }
 
-      /* Contenuto */
-
       main {
-        width: min(1000px, calc(100% - 40px));
+        width: min(1050px, calc(100% - 40px));
         margin: 0 auto;
       }
 
@@ -206,7 +198,7 @@
       }
 
       .titolo-sezione {
-        max-width: 720px;
+        max-width: 760px;
         margin-bottom: 35px;
       }
 
@@ -221,16 +213,14 @@
         color: var(--muted);
       }
 
-      /* Schede */
-
       .griglia {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 22px;
       }
 
       .scheda {
-        padding: 26px;
+        padding: 27px;
         background-color: var(--surface);
         border: 1px solid var(--border);
         border-top: 5px solid var(--primary);
@@ -248,16 +238,30 @@
         color: var(--muted);
       }
 
-      /* Percorso */
+      .progetto {
+        margin-top: 30px;
+        padding: 30px;
+        background-color: var(--primary-light);
+        border-left: 6px solid var(--accent);
+        border-radius: 10px;
+      }
 
-      .percorso {
+      .progetto h3 {
+        margin-top: 0;
+        color: var(--primary-dark);
+      }
+
+      .progetto p:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline {
         display: grid;
         gap: 20px;
       }
 
       .esperienza {
-        position: relative;
-        padding: 25px 28px 25px 32px;
+        padding: 26px 30px;
         background-color: var(--surface);
         border: 1px solid var(--border);
         border-left: 6px solid var(--primary);
@@ -265,12 +269,12 @@
       }
 
       .esperienza h3 {
-        margin: 0 0 4px;
+        margin: 0 0 5px;
         color: var(--primary-dark);
       }
 
-      .esperienza .organizzazione {
-        margin: 0 0 10px;
+      .organizzazione {
+        margin: 0 0 12px;
         color: var(--accent);
         font-weight: bold;
       }
@@ -279,16 +283,26 @@
         margin-bottom: 0;
       }
 
-      /* Contatti */
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 25px;
+      }
+
+      .tag {
+        padding: 7px 13px;
+        color: var(--primary-dark);
+        background-color: var(--primary);
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
 
       .contatti {
         padding: 45px;
         background-color: var(--primary);
         border-radius: 16px;
-      }
-
-      .contatti h2 {
-        color: var(--primary-dark);
       }
 
       .elenco-contatti {
@@ -302,8 +316,6 @@
         overflow-wrap: anywhere;
       }
 
-      /* Footer */
-
       footer {
         margin-top: 70px;
         padding: 30px 20px;
@@ -313,9 +325,7 @@
         border-top: 1px solid var(--border);
       }
 
-      /* Telefono e tablet */
-
-      @media (max-width: 800px) {
+      @media (max-width: 850px) {
         .nav-container {
           padding: 14px 0;
           flex-direction: column;
@@ -353,7 +363,7 @@
         }
       }
 
-      @media (max-width: 500px) {
+      @media (max-width: 550px) {
         header {
           padding: 55px 20px;
         }
@@ -367,7 +377,7 @@
         }
 
         .nav-links {
-          font-size: 0.9rem;
+          font-size: 0.85rem;
         }
 
         .contatti {
@@ -385,15 +395,14 @@
   <body>
     <nav>
       <div class="nav-container">
-        <a class="logo" href="#home">
-          SMG
-        </a>
+        <a class="logo" href="#home">SMG</a>
 
         <div class="nav-links">
           <a href="#chi-sono">Chi sono</a>
           <a href="#ricerca">Ricerca</a>
           <a href="#percorso">Percorso</a>
-          <a href="#profili">Profili</a>
+          <a href="#conferenze">Conferenze</a>
+          <a href="#attivita">Attività</a>
           <a href="#contatti">Contatti</a>
         </div>
       </div>
@@ -409,36 +418,35 @@
 
         <div>
           <p class="etichetta">
-            Artificial Intelligence · Cybersecurity · Research
+            Artificial Intelligence · HCI · Edge AI
           </p>
 
           <h1>Sofia Marilina Glorioso</h1>
 
           <p class="titolo-professionale">
-            PhD Candidate presso l'Università degli Studi di Enna “Kore”
+            PhD Candidate in Artificial Intelligence and
+            Human-Computer Interaction
           </p>
 
           <p class="introduzione">
-            Svolgo attività di ricerca nell'ambito dell'Intelligenza
-            Artificiale, con particolare interesse per i sistemi
-            intelligenti efficienti, l'elaborazione di dati multimodali
-            e le applicazioni dell'AI in contesti reali. La mia ricerca
-            è condotta in collaborazione con STMicroelectronics.
+            Dottoranda presso l'Università degli Studi di Enna “Kore”.
+            La mia ricerca riguarda l'ottimizzazione di reti neurali
+            per applicazioni basate su dati multimodali e dispositivi
+            edge, con particolare attenzione alla Human-Computer
+            Interaction e alle interfacce intelligenti.
           </p>
 
           <div class="pulsanti">
-            <a
-              class="pulsante"
-              href="#ricerca"
-            >
+            <a class="pulsante" href="#ricerca">
               Scopri la mia ricerca
             </a>
 
             <a
               class="pulsante pulsante-secondario"
-              href="#contatti"
+              href="CV-Sofia-Marilina-Glorioso.pdf"
+              target="_blank"
             >
-              Contattami
+              Visualizza il CV
             </a>
           </div>
         </div>
@@ -453,26 +461,26 @@
         </div>
 
         <p>
-          Sono Sofia Marilina Glorioso, PhD Candidate presso
-          l'Università degli Studi di Enna “Kore”. Il mio percorso
-          accademico nasce dall'interesse per l'Intelligenza Artificiale,
-          la Cybersecurity e lo sviluppo di tecnologie capaci di
-          affrontare problemi concreti.
+          Sono Sofia Marilina Glorioso, dottoranda presso l'Università
+          degli Studi di Enna “Kore” e dottoressa magistrale in
+          Ingegneria dell'Intelligenza Artificiale e della Sicurezza
+          Informatica.
         </p>
 
         <p>
-          Dopo una formazione magistrale in Artificial Intelligence
-          and Cybersecurity, ho proseguito il mio percorso dedicandomi
-          alla ricerca. Attualmente lavoro in collaborazione con
-          STMicroelectronics, confrontandomi con le esigenze e i vincoli
-          che caratterizzano l'applicazione dell'AI in ambito industriale.
+          Il mio percorso unisce Intelligenza Artificiale,
+          Human-Computer Interaction, Human-Centred AI, sistemi
+          multimodali e cybersecurity. Mi interessa progettare
+          tecnologie intelligenti che siano efficienti, sicure,
+          comprensibili e realmente utili per le persone.
         </p>
 
         <p>
-          Il mio obiettivo è contribuire alla progettazione di sistemi
-          intelligenti affidabili, efficienti e utilizzabili al di fuori
-          dei soli ambienti sperimentali, combinando ricerca accademica,
-          innovazione tecnologica e applicazioni reali.
+          La mia attività di ricerca si sviluppa tra università e
+          industria. Collaboro con STMicroelectronics su soluzioni
+          di Intelligenza Artificiale per dispositivi con risorse
+          limitate e su interfacce multimodali capaci di adattarsi
+          all'utente e al contesto.
         </p>
       </section>
 
@@ -480,23 +488,35 @@
         <div class="titolo-sezione">
           <p class="etichetta">Research interests</p>
 
-          <h2>Di cosa mi occupo</h2>
+          <h2>Ambiti di ricerca</h2>
 
           <p class="sottotitolo">
-            La mia attività si concentra sullo sviluppo e
-            sull'applicazione di metodi di Intelligenza Artificiale
-            efficienti, sicuri e orientati a scenari concreti.
+            La mia ricerca studia il rapporto tra sistemi intelligenti,
+            persone e dispositivi, con un approccio interdisciplinare
+            orientato ad applicazioni reali.
           </p>
         </div>
 
         <div class="griglia">
           <article class="scheda">
-            <h3>Efficient AI ed Edge AI</h3>
+            <h3>Human-Computer Interaction</h3>
 
             <p>
-              Studio tecniche per ottimizzare modelli di reti neurali
-              destinati a dispositivi con risorse limitate, come
-              microcontrollori, microprocessori e sistemi embedded.
+              Studio tecnologie e tecniche di interazione
+              uomo-macchina, con particolare interesse per la
+              progettazione di interfacce intelligenti, adattive
+              e centrate sulle esigenze dell'utente.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>Human-Centred AI</h3>
+
+            <p>
+              Esploro metodi di Intelligenza Artificiale progettati
+              considerando capacità, obiettivi e comportamenti umani,
+              affinché i sistemi risultino accessibili, affidabili
+              e utili.
             </p>
           </article>
 
@@ -504,10 +524,20 @@
             <h3>Multimodal AI</h3>
 
             <p>
-              Mi interesso alla combinazione di informazioni provenienti
-              da sensori e modalità differenti, con l'obiettivo di
-              ottenere sistemi più completi, robusti e consapevoli
-              del contesto.
+              Mi occupo di sistemi capaci di combinare dati provenienti
+              da modalità e sensori differenti per comprendere meglio
+              l'utente e il contesto di utilizzo.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>Efficient AI ed Edge AI</h3>
+
+            <p>
+              Studio l'ottimizzazione di reti neurali per
+              microcontrollori, microprocessori, sistemi embedded
+              e altri dispositivi caratterizzati da risorse
+              computazionali limitate.
             </p>
           </article>
 
@@ -515,11 +545,48 @@
             <h3>AI e Cybersecurity</h3>
 
             <p>
-              Esploro l'impiego dell'Intelligenza Artificiale per
-              applicazioni sicure, inclusi sistemi biometrici,
-              autenticazione e ambienti connessi basati su IoT.
+              Mi interesso all'impiego dell'AI per autenticazione
+              biometrica, interfacce sicure e applicazioni connesse
+              all'interno di ecosistemi IoT.
             </p>
           </article>
+
+          <article class="scheda">
+            <h3>Intelligent Interfaces</h3>
+
+            <p>
+              Analizzo come l'Intelligenza Artificiale possa supportare
+              la realizzazione di interfacce adattive, distribuite
+              e pervasive su reti di dispositivi personali.
+            </p>
+          </article>
+        </div>
+
+        <div class="progetto">
+          <p class="etichetta">PhD research project</p>
+
+          <h3>
+            Ottimizzazione di reti neurali artificiali per applicazioni
+            basate su dati multimodali per dispositivi edge
+          </h3>
+
+          <p>
+            Il progetto studia tecniche per rendere i modelli di
+            Intelligenza Artificiale più efficienti e adatti
+            all'esecuzione su dispositivi con capacità computazionali
+            e risorse energetiche limitate.
+          </p>
+        </div>
+
+        <div class="tag-list">
+          <span class="tag">Human-Computer Interaction</span>
+          <span class="tag">Human-Centred AI</span>
+          <span class="tag">Multimodal AI</span>
+          <span class="tag">Edge AI</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Biometrics</span>
+          <span class="tag">IoT</span>
         </div>
       </section>
 
@@ -530,52 +597,204 @@
           <h2>Percorso accademico e professionale</h2>
 
           <p class="sottotitolo">
-            Un percorso costruito tra formazione specialistica,
-            ricerca universitaria e collaborazione industriale.
+            Un percorso sviluppato tra formazione ingegneristica,
+            ricerca accademica, collaborazione internazionale
+            e applicazioni industriali.
           </p>
         </div>
 
-        <div class="percorso">
+        <div class="timeline">
           <article class="esperienza">
-            <h3>PhD Candidate</h3>
+            <h3>Visiting PhD Student</h3>
 
             <p class="organizzazione">
-              Università degli Studi di Enna “Kore”
+              University of Glasgow · Glasgow, Regno Unito · 2026
             </p>
 
             <p>
-              Attività di ricerca nell'ambito dell'Intelligenza
-              Artificiale, con attenzione all'efficienza dei modelli,
-              ai dati multimodali e alle applicazioni su dispositivi
-              con risorse computazionali limitate.
+              Periodo internazionale di ricerca svolto da marzo
+              a giugno 2026 nell'ambito del percorso di dottorato.
             </p>
           </article>
 
           <article class="esperienza">
-            <h3>Collaborazione di ricerca</h3>
+            <h3>Dottorato di ricerca</h3>
 
             <p class="organizzazione">
-              STMicroelectronics
+              Università degli Studi di Enna “Kore” · Dal 2023
             </p>
 
             <p>
-              Ricerca orientata al trasferimento di tecniche di
-              Intelligenza Artificiale verso scenari industriali,
-              piattaforme embedded e applicazioni reali.
+              Ricerca sull'ottimizzazione di reti neurali artificiali
+              per applicazioni multimodali eseguite su dispositivi edge.
             </p>
           </article>
 
           <article class="esperienza">
-            <h3>Laurea magistrale</h3>
+            <h3>Collaborazione industriale</h3>
 
             <p class="organizzazione">
-              Artificial Intelligence and Cybersecurity
+              STMicroelectronics · Catania · Dal 2025
             </p>
 
             <p>
-              Formazione avanzata sui metodi dell'Intelligenza
-              Artificiale, sulla sicurezza informatica e sulla
-              progettazione di sistemi software intelligenti.
+              Attività di ricerca industriale prevista dal programma
+              di dottorato, con attenzione all'applicazione di
+              tecnologie AI in scenari reali.
+            </p>
+          </article>
+
+          <article class="esperienza">
+            <h3>Ricerca presso STMLab</h3>
+
+            <p class="organizzazione">
+              Università degli Studi di Enna “Kore” · Dal 2023
+            </p>
+
+            <p>
+              Attività su Human-Computer Interaction, interfacce
+              multimodali intelligenti e processi di adattamento
+              dell'interfaccia basati su Intelligenza Artificiale.
+            </p>
+          </article>
+
+          <article class="esperienza">
+            <h3>
+              Laurea magistrale in Ingegneria dell'Intelligenza
+              Artificiale e della Sicurezza Informatica
+            </h3>
+
+            <p class="organizzazione">
+              Università degli Studi di Enna “Kore” · 2024
+            </p>
+
+            <p>
+              Laurea conseguita con votazione di 110/110 e lode.
+            </p>
+          </article>
+
+          <article class="esperienza">
+            <h3>Laurea in Ingegneria Informatica</h3>
+
+            <p class="organizzazione">
+              Università degli Studi di Enna “Kore” · 2022
+            </p>
+
+            <p>
+              Formazione ingegneristica dedicata all'informatica,
+              alla programmazione e alla progettazione di sistemi
+              software.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="conferenze">
+        <div class="titolo-sezione">
+          <p class="etichetta">International experience</p>
+
+          <h2>Conferenze internazionali</h2>
+
+          <p class="sottotitolo">
+            Ho partecipato a numerose conferenze internazionali,
+            presentando lavori di ricerca, poster e contributi
+            scientifici e collaborando anche all'organizzazione
+            degli eventi.
+          </p>
+        </div>
+
+        <div class="griglia">
+          <article class="scheda">
+            <h3>PerDis 2026</h3>
+
+            <p>
+              International Symposium on Pervasive Displays,
+              Monaco di Baviera. Autrice e presenter di un poster paper.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>MUM 2025</h3>
+
+            <p>
+              International Conference on Mobile and Ubiquitous
+              Multimedia, Enna. Student Volunteers Chair, autrice
+              e presenter di un poster paper.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>CHItaly 2025</h3>
+
+            <p>
+              Conferenza della comunità italiana ACM SIGCHI,
+              Salerno. Autrice e presenter di un poster paper
+              e di un workshop paper per EMPATH-IA.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>MUM 2024</h3>
+
+            <p>
+              International Conference on Mobile and Ubiquitous
+              Multimedia, Stoccolma. Presentazione del progetto
+              di ricerca al Doctoral Consortium e attività come
+              Student Volunteer.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="attivita">
+        <div class="titolo-sezione">
+          <p class="etichetta">Academic service</p>
+
+          <h2>Attività accademiche e divulgative</h2>
+
+          <p class="sottotitolo">
+            Oltre alla ricerca, partecipo ad attività accademiche,
+            divulgative e di revisione scientifica.
+          </p>
+        </div>
+
+        <div class="griglia">
+          <article class="scheda">
+            <h3>Cultore della materia</h3>
+
+            <p>
+              Cultore della materia per il settore scientifico
+              disciplinare ING-INF/05 presso l'Università degli
+              Studi di Enna “Kore”, a partire dall'anno accademico
+              2025–2026.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>Peer review</h3>
+
+            <p>
+              Revisore di contributi scientifici per i workshop
+              SPHERA di ETRA 2026 e MCMI di ICPR 2026.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>Divulgazione scientifica</h3>
+
+            <p>
+              Relatrice di seminari su reti neurali, data fusion,
+              dispositivi a risorse ridotte, applicazioni mediche
+              e Intelligenza Artificiale.
+            </p>
+          </article>
+
+          <article class="scheda">
+            <h3>Competenze tecniche</h3>
+
+            <p>
+              Python, PyTorch, TensorFlow, Keras, Scikit-learn,
+              NumPy, SciPy, pandas, Java, SQL e MATLAB.
             </p>
           </article>
         </div>
@@ -585,11 +804,11 @@
         <div class="titolo-sezione">
           <p class="etichetta">Online</p>
 
-          <h2>Profili professionali</h2>
+          <h2>Profili e curriculum</h2>
 
           <p class="sottotitolo">
-            Consulta i miei profili per approfondire le pubblicazioni,
-            le collaborazioni e le attività professionali.
+            Consulta le mie pubblicazioni, le attività professionali
+            e il curriculum completo.
           </p>
         </div>
 
@@ -611,6 +830,31 @@
           >
             Google Scholar
           </a>
+
+          <a
+            class="pulsante"
+            href="https://www.scopus.com/authid/detail.uri?authorId=59529551600"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Scopus
+          </a>
+
+          <a
+            class="pulsante pulsante-secondario"
+            href="CV-Sofia-Marilina-Glorioso.pdf"
+            target="_blank"
+          >
+            Visualizza il CV
+          </a>
+
+          <a
+            class="pulsante pulsante-secondario"
+            href="CV-Sofia-Marilina-Glorioso.pdf"
+            download
+          >
+            Scarica il CV
+          </a>
         </div>
       </section>
 
@@ -621,14 +865,15 @@
           <h2>Contatti</h2>
 
           <p>
-            Per informazioni, collaborazioni scientifiche o opportunità
-            professionali puoi contattarmi attraverso uno dei seguenti
-            indirizzi.
+            Per collaborazioni scientifiche, attività accademiche
+            o opportunità professionali puoi contattarmi attraverso
+            uno dei seguenti indirizzi.
           </p>
 
           <div class="elenco-contatti">
             <p>
               <strong>Email:</strong>
+
               <a href="mailto:sofiamarilina.glorioso@gmail.com">
                 sofiamarilina.glorioso@gmail.com
               </a>
@@ -636,6 +881,7 @@
 
             <p>
               <strong>Email istituzionale:</strong>
+
               <a href="mailto:sofiamarilina.glorioso@unikorestudent.it">
                 sofiamarilina.glorioso@unikorestudent.it
               </a>
