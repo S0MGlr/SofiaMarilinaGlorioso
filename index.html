@@ -761,6 +761,55 @@
       }
 
       /* ----------------------------- */
+      /* LANGUAGE SWITCHER             */
+      /* ----------------------------- */
+
+      .language-switcher {
+        position: fixed;
+        left: max(18px, env(safe-area-inset-left));
+        bottom: max(18px, env(safe-area-inset-bottom));
+        z-index: 1000;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 56px;
+        height: 56px;
+        padding: 0;
+
+        background: var(--surface);
+        border: 2px solid rgba(36, 68, 92, 0.2);
+        border-radius: 50%;
+        box-shadow: 0 10px 28px rgba(36, 68, 92, 0.2);
+
+        font-size: 1.75rem;
+        line-height: 1;
+        cursor: pointer;
+
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .language-switcher:hover {
+        transform: translateY(-2px) scale(1.04);
+        border-color: var(--accent);
+        box-shadow: 0 14px 32px rgba(36, 68, 92, 0.24);
+      }
+
+      .language-switcher:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 4px;
+      }
+
+      .language-switcher .flag {
+        display: block;
+        transform: translateY(-1px);
+      }
+
+      /* ----------------------------- */
       /* RESPONSIVE                    */
       /* ----------------------------- */
 
@@ -846,6 +895,15 @@
   </head>
 
   <body>
+
+    <button
+      class="language-switcher"
+      type="button"
+      aria-label="Translate website into English"
+      title="Translate website into English"
+    >
+      <span class="flag" aria-hidden="true">🇮🇹</span>
+    </button>
 
     <!-- NAVBAR -->
 
@@ -1768,6 +1826,186 @@
       © 2026 <strong>Sofia Marilina Glorioso</strong>
       · Academic website
     </footer>
+
+    <script>
+      (() => {
+        "use strict";
+
+        const translations = new Map([
+          ["Chi sono", "About me"],
+          ["Ricerca", "Research"],
+          ["Percorso", "Background"],
+          ["Conferenze", "Conferences"],
+          ["Attività", "Activities"],
+          ["Profili", "Profiles"],
+          ["Contatti", "Contact"],
+          ["Intelligenza Artificiale · Interazione Uomo–Computer", "Artificial Intelligence · Human-Computer Interaction"],
+          ["Dottoranda in Intelligenza Artificiale e Human-Computer Interaction", "PhD Candidate in Artificial Intelligence and Human-Computer Interaction"],
+          ["Persona", "Human"],
+          ["IA", "AI"],
+          ["Dispositivi", "Devices"],
+          ["Dottoranda presso l'Università degli Studi di Enna “Kore”. La mia ricerca riguarda l'ottimizzazione di reti neurali per applicazioni basate su dati multimodali e dispositivi edge, con particolare attenzione alla Human-Computer Interaction e alle interfacce intelligenti. Attualmente frequento anche un Master in Ingegneria Clinica.", "PhD candidate at the University of Enna “Kore”. My research focuses on neural network optimisation for multimodal data applications and edge devices, with particular emphasis on Human-Computer Interaction and intelligent interfaces. I am also currently pursuing a Master's degree in Clinical Engineering."],
+          ["Scopri la mia ricerca", "Explore my research"],
+          ["Visualizza il CV", "View my CV"],
+          ["Profilo", "Profile"],
+          ["Sono Sofia Marilina Glorioso, dottoranda presso l'Università degli Studi di Enna “Kore”. Ho conseguito la Laurea magistrale in Ingegneria dell'Intelligenza Artificiale e della Sicurezza Informatica con votazione di 110/110 e lode e una Laurea triennale in Ingegneria Informatica.", "I am Sofia Marilina Glorioso, a PhD candidate at the University of Enna “Kore”. I hold a Master's degree in Artificial Intelligence and Cybersecurity Engineering, awarded with the highest honours (110/110 cum laude), and a Bachelor's degree in Computer Engineering."],
+          ["Attualmente frequento anche un Master in Ingegneria Clinica, con l'obiettivo di approfondire l'applicazione delle tecnologie ingegneristiche, dei sistemi digitali e dell'Intelligenza Artificiale in ambito sanitario.", "I am also currently pursuing a Master's degree in Clinical Engineering to further explore the application of engineering technologies, digital systems and Artificial Intelligence in healthcare."],
+          ["Il mio percorso unisce Intelligenza Artificiale, Human-Computer Interaction, Human-Centred AI, sistemi multimodali e cybersecurity. Mi interessa progettare tecnologie intelligenti che siano efficienti, sicure, comprensibili e realmente utili per le persone.", "My work brings together Artificial Intelligence, Human-Computer Interaction, Human-Centred AI, multimodal systems and cybersecurity. I am interested in designing intelligent technologies that are efficient, secure, understandable and genuinely useful to people."],
+          ["La mia attività di ricerca si sviluppa tra università e industria. Collaboro con STMicroelectronics su soluzioni di Intelligenza Artificiale per dispositivi con risorse limitate e su interfacce multimodali capaci di adattarsi all'utente e al contesto.", "My research spans academia and industry. I collaborate with STMicroelectronics on Artificial Intelligence solutions for resource-constrained devices and on multimodal interfaces that can adapt to the user and the context."],
+          ["Ambiti di ricerca", "Research areas"],
+          ["Interessi di ricerca", "Research interests"],
+          ["La mia ricerca studia il rapporto tra sistemi intelligenti, persone e dispositivi, con un approccio interdisciplinare orientato ad applicazioni reali.", "My research investigates the relationship between intelligent systems, people and devices through an interdisciplinary approach focused on real-world applications."],
+          ["Studio tecnologie e tecniche di interazione uomo-macchina, con particolare interesse per la progettazione di interfacce intelligenti, adattive e centrate sulle esigenze dell'utente.", "I study human–computer interaction technologies and techniques, with a particular interest in designing intelligent, adaptive interfaces centred on users' needs."],
+          ["Esploro metodi di Intelligenza Artificiale progettati considerando capacità, obiettivi e comportamenti umani, affinché i sistemi risultino accessibili, affidabili e utili.", "I explore Artificial Intelligence methods designed around human abilities, goals and behaviours, so that systems are accessible, reliable and useful."],
+          ["Mi occupo di sistemi capaci di combinare dati provenienti da modalità e sensori differenti per comprendere meglio l'utente e il contesto di utilizzo.", "I work on systems that combine data from different modalities and sensors to better understand users and their context of use."],
+          ["Efficient AI ed Edge AI", "Efficient AI and Edge AI"],
+          ["Studio l'ottimizzazione di reti neurali per microcontrollori, microprocessori, sistemi embedded e altri dispositivi caratterizzati da risorse computazionali limitate.", "I study neural network optimisation for microcontrollers, microprocessors, embedded systems and other devices with limited computational resources."],
+          ["AI e Cybersecurity", "AI and Cybersecurity"],
+          ["Mi interesso all'impiego dell'AI per autenticazione biometrica, interfacce sicure e applicazioni connesse all'interno di ecosistemi IoT.", "I investigate the use of AI for biometric authentication, secure interfaces and connected applications within IoT ecosystems."],
+          ["AI e tecnologie cliniche", "AI and clinical technologies"],
+          ["Approfondisco l'impiego delle tecnologie ingegneristiche e dell'Intelligenza Artificiale in ambito sanitario, con attenzione ai sistemi digitali e ai dispositivi utilizzati nei contesti clinici.", "I explore the use of engineering technologies and Artificial Intelligence in healthcare, with a focus on digital systems and devices used in clinical settings."],
+          ["Ottimizzazione di reti neurali artificiali per applicazioni basate su dati multimodali per dispositivi edge", "Optimisation of artificial neural networks for multimodal data applications on edge devices"],
+          ["Progetto di ricerca di dottorato", "PhD research project"],
+          ["Il progetto studia tecniche per rendere i modelli di Intelligenza Artificiale più efficienti e adatti all'esecuzione su dispositivi con capacità computazionali e risorse energetiche limitate.", "The project investigates techniques for making Artificial Intelligence models more efficient and suitable for deployment on devices with limited computational capacity and energy resources."],
+          ["Percorso accademico e professionale", "Academic and professional background"],
+          ["Formazione", "Education"],
+          ["Un percorso sviluppato tra formazione ingegneristica, ricerca accademica, collaborazione internazionale, applicazioni industriali e tecnologie cliniche.", "A path spanning engineering education, academic research, international collaboration, industrial applications and clinical technologies."],
+          ["Master in Ingegneria Clinica", "Master's degree in Clinical Engineering"],
+          ["⚙️🩺 In corso · 2026", "⚙️🩺 Ongoing · 2026"],
+          ["Percorso di alta formazione finalizzato alla specializzazione come Ingegnere Clinico, con competenze avanzate nella gestione, valutazione e innovazione delle tecnologie sanitarie in ambito clinico-ospedaliero. La formazione approfondisce metodologie di Health Technology Assessment (HTA), gestione del rischio clinico, ottimizzazione delle risorse tecnologiche e qualità dei percorsi diagnostico-terapeutici, integrando conoscenze sui modelli organizzativi del Servizio Sanitario e sul quadro normativo e regolatorio del settore.", "Advanced postgraduate programme leading to specialisation as a Clinical Engineer, with in-depth expertise in the management, assessment and innovation of healthcare technologies in clinical and hospital settings. The programme covers Health Technology Assessment (HTA) methods, clinical risk management, optimisation of technological resources and the quality of diagnostic and treatment pathways, together with healthcare service organisational models and the sector's legal and regulatory framework."],
+          ["Visiting PhD Student", "Visiting PhD Student"],
+          ["Periodo internazionale di ricerca svolto da marzo a giugno 2026 nell'ambito del percorso di dottorato.", "International research visit undertaken from March to June 2026 as part of my PhD programme."],
+          ["Dottorato di ricerca", "PhD programme"],
+          ["🇮🇹 Università degli Studi di Enna “Kore” · Dal 2023", "🇮🇹 University of Enna “Kore” · Since 2023"],
+          ["Ricerca sull'ottimizzazione di reti neurali artificiali per applicazioni multimodali eseguite su dispositivi edge.", "Research on optimising artificial neural networks for multimodal applications running on edge devices."],
+          ["Collaborazione industriale", "Industry collaboration"],
+          ["🇮🇹 STMicroelectronics · Catania · Dal 2025", "🇮🇹 STMicroelectronics · Catania · Since 2025"],
+          ["Attività di ricerca industriale prevista dal programma di dottorato, con attenzione all'applicazione di tecnologie AI in scenari reali.", "Industry research carried out as part of the PhD programme, focusing on the application of AI technologies in real-world scenarios."],
+          ["Ricerca presso STMLab", "Research at STMLab"],
+          ["Attività su Human-Computer Interaction, interfacce multimodali intelligenti e processi di adattamento dell'interfaccia basati su Intelligenza Artificiale.", "Research on Human-Computer Interaction, intelligent multimodal interfaces and Artificial Intelligence-based interface adaptation."],
+          ["Laurea magistrale in Ingegneria dell'Intelligenza Artificiale e della Sicurezza Informatica", "Master's degree in Artificial Intelligence and Cybersecurity Engineering"],
+          ["Laurea conseguita con votazione di 110/110 e lode.", "Degree awarded with the highest honours (110/110 cum laude)."],
+          ["Laurea in Ingegneria Informatica", "Bachelor's degree in Computer Engineering"],
+          ["Formazione ingegneristica dedicata all'informatica, alla programmazione e alla progettazione di sistemi software.", "Engineering education focused on computer science, programming and software systems design."],
+          ["Conferenze internazionali", "International conferences"],
+          ["Esperienza internazionale", "International experience"],
+          ["Ho partecipato a numerose conferenze internazionali, presentando lavori di ricerca, poster e contributi scientifici e collaborando anche all'organizzazione degli eventi.", "I have participated in numerous international conferences, presenting research papers, posters and scientific contributions, as well as helping to organise events."],
+          ["🇫🇷 Lyon, France", "🇫🇷 Lyon, France"],
+          ["Partecipazione alla 28th International Conference on Pattern Recognition (ICPR 2026) e al 2nd Workshop on Multi and Cross-Modal Information (MCMI 2026), co-located con la conferenza.", "Participation in the 28th International Conference on Pattern Recognition (ICPR 2026) and the 2nd Workshop on Multi and Cross-Modal Information (MCMI 2026), co-located with the conference."],
+          ["Il workshop, dedicato all'apprendimento multimodale e all'integrazione di informazioni provenienti da testo, immagini, audio e altri segnali, si è svolto il 21 agosto 2026.", "The workshop, dedicated to multimodal learning and the integration of information from text, images, audio and other signals, took place on 21 August 2026."],
+          ["🇩🇪 Munich, Germany", "🇩🇪 Munich, Germany"],
+          ["International Symposium on Pervasive Displays. Autrice e presenter di un poster paper.", "International Symposium on Pervasive Displays. Author and presenter of a poster paper."],
+          ["🇮🇹 Enna, Italy", "🇮🇹 Enna, Italy"],
+          ["International Conference on Mobile and Ubiquitous Multimedia. Student Volunteers Chair, autrice e presenter di un poster paper.", "International Conference on Mobile and Ubiquitous Multimedia. Student Volunteers Chair, author and presenter of a poster paper."],
+          ["🇮🇹 Salerno, Italy", "🇮🇹 Salerno, Italy"],
+          ["Conferenza della comunità italiana ACM SIGCHI. Autrice e presenter di un poster paper e di un workshop paper per EMPATH-IA.", "Conference of the Italian ACM SIGCHI community. Author and presenter of a poster paper and an EMPATH-IA workshop paper."],
+          ["🇸🇪 Stockholm, Sweden", "🇸🇪 Stockholm, Sweden"],
+          ["International Conference on Mobile and Ubiquitous Multimedia. Presentazione del progetto di ricerca al Doctoral Consortium e attività come Student Volunteer.", "International Conference on Mobile and Ubiquitous Multimedia. Presentation of my research project at the Doctoral Consortium and participation as a Student Volunteer."],
+          ["Attività accademiche e divulgative", "Academic service and public engagement"],
+          ["Servizio accademico", "Academic service"],
+          ["Oltre alla ricerca, partecipo ad attività accademiche, divulgative e di revisione scientifica.", "Alongside my research, I contribute to academic service, public engagement and peer review."],
+          ["Cultore della materia", "Subject expert and teaching assistant"],
+          ["Cultore della materia per il settore scientifico disciplinare ING-INF/05 presso l'Università degli Studi di Enna “Kore”, a partire dall'anno accademico 2025–2026.", "Subject expert and teaching assistant in the ING-INF/05 academic field at the University of Enna “Kore” from the 2025–2026 academic year."],
+          ["Revisore di contributi scientifici per i workshop SPHERA di ETRA 2026 e MCMI di ICPR 2026.", "Reviewer of scientific submissions for the SPHERA workshop at ETRA 2026 and the MCMI workshop at ICPR 2026."],
+          ["Revisione paritaria", "Peer review"],
+          ["Divulgazione scientifica", "Science communication"],
+          ["Relatrice di seminari su reti neurali, data fusion, dispositivi a risorse ridotte, applicazioni mediche e Intelligenza Artificiale.", "Speaker at seminars on neural networks, data fusion, resource-constrained devices, medical applications and Artificial Intelligence."],
+          ["Competenze tecniche", "Technical skills"],
+          ["Profili e curriculum", "Profiles and CV"],
+          ["Online", "Online"],
+          ["Consulta le mie pubblicazioni, le attività professionali e il curriculum completo.", "Explore my publications, professional activities and full CV."],
+          ["Scarica il CV", "Download my CV"],
+          ["Contattami", "Get in touch"],
+          ["Per collaborazioni scientifiche, attività accademiche o opportunità professionali puoi contattarmi attraverso uno dei seguenti indirizzi.", "For research collaborations, academic activities or professional opportunities, you can contact me at either of the following addresses."],
+          ["Email istituzionale:", "Institutional email:"],
+          ["· Academic website", "· Academic website"]
+        ]);
+
+        const normalise = (value) => value.replace(/\s+/g, " ").trim();
+        const reverseTranslations = new Map(
+          [...translations].map(([italian, english]) => [english, italian])
+        );
+
+        const textNodes = [];
+        const walker = document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode(node) {
+              if (node.parentElement?.closest("script, style, .language-switcher")) {
+                return NodeFilter.FILTER_REJECT;
+              }
+              return normalise(node.nodeValue)
+                ? NodeFilter.FILTER_ACCEPT
+                : NodeFilter.FILTER_REJECT;
+            }
+          }
+        );
+
+        while (walker.nextNode()) {
+          textNodes.push(walker.currentNode);
+        }
+
+        const originalText = new Map(
+          textNodes.map((node) => [node, node.nodeValue])
+        );
+
+        const switcher = document.querySelector(".language-switcher");
+        const flag = switcher.querySelector(".flag");
+        const description = document.querySelector('meta[name="description"]');
+        const profileImage = document.querySelector(".foto-profilo");
+
+        const metadata = {
+          it: {
+            description: "Sito accademico di Sofia Marilina Glorioso, PhD Candidate in Artificial Intelligence, Human-Computer Interaction e Cybersecurity.",
+            imageAlt: "Foto di Sofia Marilina Glorioso",
+            buttonLabel: "Traduci il sito in inglese",
+            flag: "🇮🇹"
+          },
+          en: {
+            description: "Academic website of Sofia Marilina Glorioso, PhD Candidate in Artificial Intelligence, Human-Computer Interaction and Cybersecurity.",
+            imageAlt: "Portrait of Sofia Marilina Glorioso",
+            buttonLabel: "Translate the website into Italian",
+            flag: "🇬🇧"
+          }
+        };
+
+        function applyLanguage(language) {
+          const dictionary = language === "en"
+            ? translations
+            : reverseTranslations;
+
+          textNodes.forEach((node) => {
+            const current = normalise(node.nodeValue);
+            const translated = dictionary.get(current);
+
+            if (translated) {
+              const source = originalText.get(node);
+              const leading = source.match(/^\s*/)[0];
+              const trailing = source.match(/\s*$/)[0];
+              node.nodeValue = `${leading}${translated}${trailing}`;
+            }
+          });
+
+          const currentMetadata = metadata[language];
+          document.documentElement.lang = language;
+          description.content = currentMetadata.description;
+          profileImage.alt = currentMetadata.imageAlt;
+          switcher.setAttribute("aria-label", currentMetadata.buttonLabel);
+          switcher.title = currentMetadata.buttonLabel;
+          flag.textContent = currentMetadata.flag;
+          switcher.dataset.language = language;
+          localStorage.setItem("preferred-language", language);
+        }
+
+        switcher.addEventListener("click", () => {
+          applyLanguage(switcher.dataset.language === "it" ? "en" : "it");
+        });
+
+        const savedLanguage = localStorage.getItem("preferred-language");
+        applyLanguage(savedLanguage === "en" ? "en" : "it");
+      })();
+    </script>
 
   </body>
 </html>
