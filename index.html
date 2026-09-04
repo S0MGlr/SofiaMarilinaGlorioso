@@ -432,6 +432,44 @@
         color: var(--muted);
       }
 
+      .scheda-workshop {
+        grid-column: 1 / -1;
+      }
+
+      .workshop-list {
+        display: grid;
+        gap: 10px;
+
+        margin: 20px 0 0;
+        padding: 0;
+
+        list-style: none;
+      }
+
+      .workshop-list li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 7px;
+      }
+
+      .workshop-list a {
+        color: var(--primary-dark);
+        font-weight: 600;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
+      .workshop-list a:hover {
+        color: var(--accent);
+      }
+
+      .workshop-pending {
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-style: italic;
+      }
+
       /* Research cards */
 
       #ricerca .scheda {
@@ -1694,6 +1732,43 @@
 
           </article>
 
+
+          <article class="scheda scheda-workshop">
+
+            <h3>
+              Organizzazione di workshop
+            </h3>
+
+            <p>
+              Co-organizzatrice di due workshop nell'ambito della
+              25th International Conference on Mobile and Ubiquitous
+              Multimedia (MUM 2026).
+            </p>
+
+            <ul class="workshop-list">
+
+              <li>
+                <!-- Quando sarà disponibile, sostituire questo span
+                     con: <a href="URL" target="_blank"
+                     rel="noopener noreferrer">ADAPT ↗</a> -->
+                <strong>ADAPT</strong>
+                <span class="workshop-pending">· Sito web in arrivo</span>
+              </li>
+
+              <li>
+                <a
+                  href="https://wmt2026workshop.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WMT – When Materials Think ↗
+                </a>
+              </li>
+
+            </ul>
+
+          </article>
+
         </div>
 
       </section>
@@ -1911,6 +1986,9 @@
           ["Divulgazione scientifica", "Science communication"],
           ["Relatrice di seminari su reti neurali, data fusion, dispositivi a risorse ridotte, applicazioni mediche e Intelligenza Artificiale.", "Speaker at seminars on neural networks, data fusion, resource-constrained devices, medical applications and Artificial Intelligence."],
           ["Competenze tecniche", "Technical skills"],
+          ["Organizzazione di workshop", "Workshop organisation"],
+          ["Co-organizzatrice di due workshop nell'ambito della 25th International Conference on Mobile and Ubiquitous Multimedia (MUM 2026).", "Co-organiser of two workshops held as part of the 25th International Conference on Mobile and Ubiquitous Multimedia (MUM 2026)."],
+          ["· Sito web in arrivo", "· Website coming soon"],
           ["Profili e curriculum", "Profiles and CV"],
           ["Online", "Online"],
           ["Consulta le mie pubblicazioni, le attività professionali e il curriculum completo.", "Explore my publications, professional activities and full CV."],
